@@ -1,8 +1,9 @@
 var token = 'TOKEN';
 
 var Bot = require('node-telegram-bot-api'),
-    bot = new Bot(token, { polling: true });
+var bot = new Bot(token);
 
+bot.setWebHook('https://my-web-root.com/' + bot.token);
 console.log('bot server started...');
 
 
