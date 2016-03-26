@@ -1,4 +1,4 @@
-var token = '<token-from-bot-father>';
+var token = '201063148:AAH7H5X2sJgj78DhtFU7kNHX5TvyKf_w-Q0';
 
 var Bot = require('node-telegram-bot-api'),
     bot = new Bot(token, { polling: true });
