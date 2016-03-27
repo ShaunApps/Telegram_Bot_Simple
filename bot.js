@@ -7,7 +7,7 @@ var bot;
 
 if(process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
-  bot.setWebHook('https://my-web-root.com/' + bot.token);
+  bot.setWebHook('https://api.telegram.org/bot' + bot.token);
 }
 else {
   bot = new Bot(token, { polling: true });
