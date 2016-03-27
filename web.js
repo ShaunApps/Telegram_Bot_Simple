@@ -11,10 +11,7 @@ app.get('/', function (req, res) {
   res.json({ version: packageInfo.version });
 });
 
-app.post('/' + '201063148:AAH7H5X2sJgj78DhtFU7kNHX5TvyKf_w-Q0', function (req, res) {
-  bot.processUpdate(req.body);
-  res.sendStatus(200);
-});
+
 
 var server = app.listen(process.env.PORT, function () {
   var host = server.address().address;
@@ -22,3 +19,10 @@ var server = app.listen(process.env.PORT, function () {
 
   console.log('Web server started at http://%s:%s', host, port);
 });
+
+module.exports = function(bot){
+  app.post('/' + '201063148:AAH7H5X2sJgj78DhtFU7kNHX5TvyKf_w-Q0', function (req, res) {
+    bot.processUpdate(req.body);
+    res.sendStatus(200);
+  });
+};

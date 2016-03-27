@@ -1,10 +1,18 @@
 var token = '201063148:AAH7H5X2sJgj78DhtFU7kNHX5TvyKf_w-Q0';
 
 var Bot = require('node-telegram-bot-api'),
-// var bot = new Bot(token);
-var bot = new Bot(token, { polling: true });
+var bot;
 
-bot.setWebHook('https://api.telegram.org/bot' + bot.token);
+
+
+if(process.env.NODE_ENV === 'production') {
+  bot = new Bot(token);
+  bot.setWebHook('https://my-web-root.com/' + bot.token);
+}
+else {
+  bot = new Bot(token, { polling: true });
+}
+// bot.setWebHook('https://api.telegram.org/bot' + bot.token);
 console.log('bot server started...');
 
 
@@ -26,3 +34,5 @@ bot.onText(/^\/sum((\s+\d+)+)$/, function (msg, match) {
     // reply sent!
   });
 });
+
+module.exports = bot;
