@@ -21,7 +21,7 @@ var server = app.listen(process.env.PORT, function () {
 });
 
 module.exports = function(bot){
-  app.post('/' + '201063148:AAH7H5X2sJgj78DhtFU7kNHX5TvyKf_w-Q0', function (req, res) {
+  app.post('/' + token, function (req, res) {
     bot.processUpdate(req.body);
     res.sendStatus(200);
   });
